@@ -6,7 +6,7 @@ import json
 import time
 import requests
 from requests.auth import HTTPBasicAuth
-from BeautifulSoup import BeautifulSoup, SoupStrainer
+from bs4 import BeautifulSoup, SoupStrainer
 
 
 def _dumpDict(aDict, filePath):
@@ -51,7 +51,7 @@ class EPFDownloader(object):
         for table_line in BeautifulSoup(html, parseOnlyThese=SoupStrainer('tr')):
             line = table_line.findAll("td")
             if line:
-                files.append((line[1].a.get('href'), time.strptime(line[2].text, self.EPF_DATE_FORMAT)))
+                files.append((line[1].a.get('href'), time.strptime(line[2].text.strip(), self.EPF_DATE_FORMAT)))
         return [filename for filename in files if self._match_filename(filename[0])]
 
     def _match_filename(self, filename):

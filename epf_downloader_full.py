@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-import epf_downloader
+import iTunesReviewAnalyzer.EPFData.EPFDownloader.epf_downloader as epf_downloader
 from urlgrabber import urlgrab
 from urlgrabber.progress import text_progress_meter
 
@@ -19,14 +19,14 @@ class EPFDowloaderFull(epf_downloader.EPFDownloader):
                 to_download.add(epf_file)
 
         for file_to_download in to_download:
-            print "download de %s" % file_to_download
+            print("download de %s" % file_to_download)
             try:
                 self._download_file(file_to_download)
                 self.options["downloads"].append(epf_file)
                 epf_downloader._dumpDict(self.options, epf_downloader.CONFIG_PATH)
-            except Exception, e:
-                print e
-                print "erro no download %s" % file_to_download
+            except Exception as e:
+                print(e)
+                print("erro no download %s" % file_to_download)
 
     def _download_file(self, filename):
         url = "%s%s" % (self.EPF_FULL_URL % (self.username, self.password), filename)

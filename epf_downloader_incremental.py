@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-from epf_downloader import EPFDownloader
+from iTunesReviewAnalyzer.EPFData.EPFDownloader.epf_downloader import EPFDownloader
 
 
 class EPFDowloaderIncremental(EPFDownloader):
 
     EPF_INCREMENTAL_URL = "https://feeds.itunes.apple.com/feeds/epf/v3/full/current/incremental/"
 
-    def perform_download():
+    def perform_download(self):
         pass
 
 
