@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-from iTunesReviewAnalyzer.EPFData.EPFDownloader.epf_downloader import EPFDownloader
+from EPFDownloader.epf_downloader import EPFDownloader
 
 
 class EPFDowloaderIncremental(EPFDownloader):
